@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cps-db-pg-interface"
+version = "0.1.0"
+description = "Your description here"
+authors = [
+    { name = "Jason Jian", email = "sjian@strategy.com" }
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "sqlalchemy==2.0.42",
+    "psycopg2-binary==2.9.10"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
