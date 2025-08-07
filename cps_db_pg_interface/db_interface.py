@@ -34,7 +34,7 @@ class DataSqlTemplate(metaclass=ABCMeta):
         mysqlDic = self.config
         connectString = 'postgresql+' + mysqlDic['DB_CONNECTOR'] + '://' + mysqlDic['DB_USER'] + ':' + mysqlDic[
             'DB_PASSWORD'] + '@' + mysqlDic['DB_HOST'] + ':5432/' + mysqlDic['DB_DB'] + "?gssencmode="+mysqlDic['DB_SSL_MODE']
-        logger.info(connectString)
+        logger.error(connectString)
         engine = create_engine(connectString, pool_size=20, max_overflow=30, pool_recycle=3600, pool_timeout=30,
                                pool_pre_ping=True)
         Session = sessionmaker(bind=engine)
@@ -95,7 +95,7 @@ class DataTableBase(DataSqlTemplate):
                 judgeArgs = dict(args)
                 args.pop("id", None)
                 logger.info(self.id)
-                logger.info(judgeArgs)
+                logger.error(judgeArgs)
                 res = self.session.query(self.table).filter(self.table.get_update_judge(args=judgeArgs)).update(
                     judgeArgs)
                 self.session.commit()

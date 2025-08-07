@@ -60,10 +60,10 @@ def create_model_class(tablename, schema):
 
 
 def createTables(mysqlDic):
-    logger.info(mysqlDic)
+    logger.error(mysqlDic)
     connectString = 'postgresql+' + mysqlDic['DB_CONNECTOR'] + '://' + mysqlDic['DB_USER'] + ':' + mysqlDic[
         'DB_PASSWORD'] + '@' + mysqlDic['DB_HOST'] + ':5432/' + mysqlDic['DB_DB'] + "?gssencmode=" + mysqlDic['DB_SSL_MODE']
-    logger.info(connectString)
+    logger.error(connectString)
     engine = create_engine(connectString,
                            max_overflow=0,  # 超过连接池大小外最多创建的连接
                            pool_size=5,  # 连接池大小
