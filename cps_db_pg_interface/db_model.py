@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, Float, Text, JSON, DATE
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, Float, Text, JSON, DATE, BigInteger
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import exists, create_engine, and_, or_
 from .tool import logger
@@ -15,6 +15,7 @@ SQLALCHEMY_TYPE_MAP = {
     "Boolean": Boolean,
     "Float": Float,
     "JSON": JSON,
+    "BigInteger": BigInteger,
 }
 
 class DynamicTableMixin:
